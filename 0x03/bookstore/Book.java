@@ -9,7 +9,7 @@ public class Book {
   String author;
   double price;
 
-  public Book(String title, String author, double price) {
+  public Book(String title, String author, double price) throws InvalidBookException, InvalidAuthorException {
     setTitle(title);
     setAuthor(author);
     setPrice(price);
@@ -28,7 +28,7 @@ public class Book {
   }
 
   // author must have at least 2 words
-  public void setAuthor(String author) {
+  public void setAuthor(String author) throws InvalidAuthorException {
     int countNames = author.split(" ").length;
     if (countNames < 2) {
       throw new InvalidAuthorException("Invalid author name");
@@ -37,7 +37,7 @@ public class Book {
   }
 
   // title must have at least 3 letters
-  public void setTitle(String title) {
+  public void setTitle(String title) throws InvalidBookException {
     int countLetters = title.length();
     if (countLetters < 3) {
       throw new InvalidBookException("Invalid book title");
@@ -46,7 +46,7 @@ public class Book {
   }
 
   // price must be greater than 0
-  public void setPrice(double price) {
+  public void setPrice(double price) throws InvalidBookException {
     if (!(price > 0)) {
       throw new InvalidBookException("Invalid book price");
     }

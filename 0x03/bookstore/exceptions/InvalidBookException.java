@@ -1,6 +1,6 @@
 package bookstore.exceptions;
 
-public class InvalidBookException extends RuntimeException {
+public class InvalidBookException extends Exception {
   public InvalidBookException(String errorMessage) {
     super(errorMessage);
   }
